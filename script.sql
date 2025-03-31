@@ -2,12 +2,14 @@
 
 --Consulta 1
 SELECT nombre
-FROM visita INNER JOIN jesuita
+FROM visita 
+	INNER JOIN jesuita
 		ON jesuita.idJesuita=visita.idJesuita;
 		
 -- Consulta 2
 SELECT nombre,lugar
-FROM visita INNER JOIN jesuita
+FROM visita 
+	INNER JOIN jesuita
 		ON jesuita.idJesuita=visita.idJesuita
 	INNER JOIN lugar
 		ON lugar.ip=visita.ip;
@@ -71,13 +73,13 @@ FROM lugar
 -- Consulta 9
 SELECT DISTINCT nombre
 FROM visita 
-	LEFT JOIN jesuita
+	INNER JOIN jesuita
 		ON jesuita.idJesuita=visita.idJesuita;
 
 -- Consulta 10
 SELECT DISTINCT lugar
 FROM visita
-	LEFT JOIN lugar
+	INNER JOIN lugar
 		ON lugar.ip=visita.ip;
 
 -- Consultas Extra
@@ -91,3 +93,17 @@ SELECT ip FROM lugar
 WHERE ip LIKE '%0';
 
 -- Consulta 3
+SELECT nombre
+FROM visita 
+	INNER JOIN jesuita
+		ON jesuita.idJesuita=visita.idJesuita
+WHERE nombre LIKE '%n';
+
+-- Consulta 4
+SELECT nombre,visita.ip
+FROM jesuita 
+	INNER JOIN visita
+		ON jesuita.idJesuita=visita.idJesuita
+	INNER JOIN lugar
+		ON lugar.ip=visita.ip
+WHERE nombre LIKE '%n' OR visita.ip LIKE '%1';
