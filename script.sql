@@ -53,7 +53,7 @@ FROM lugar
 		ON lugar.ip=visita.ip
 	LEFT JOIN jesuita
 		ON jesuita.idJesuita=visita.idJesuita
-WHERE nombre IS NULL;
+WHERE idJesuita IS NULL;
 
 -- Consulta 8
 SELECT nombre,lugar,firma,firmaIngles,nombre_maquina,lugar.ip
