@@ -65,9 +65,9 @@ FROM jesuita
 UNION
 SELECT nombre,lugar,firma,firmaIngles,nombre_maquina,lugar.ip
 FROM lugar 
-	RIGHT JOIN visita
+	LEFT JOIN visita
 		ON lugar.ip=visita.ip
-	RIGHT JOIN jesuita
+	LEFT JOIN jesuita
 		ON jesuita.idJesuita=visita.idJesuita;
 		
 -- Consulta 9
